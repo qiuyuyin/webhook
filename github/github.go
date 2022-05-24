@@ -18,7 +18,7 @@ func GithubHandler(c *gin.Context) {
     hash.Write(payload)
     hash.Sum(nil)
     encoding := hex.EncodeToString(hash.Sum(nil))
-    if !hmac.Equal([]byte(signature[:5], ), []byte(encoding)) {
+    if !hmac.Equal([]byte(signature[5:], ), []byte(encoding)) {
         c.JSON(502, "signature error")
         return
     }
