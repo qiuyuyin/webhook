@@ -7,5 +7,9 @@ func main() {
     engine.GET("/", func(context *gin.Context) {
         context.JSON(200, "pong")
     })
+
+    engine.POST("/", func(context *gin.Context) {
+        context.JSON(200, "pong")
+    })
     engine.Run("0.0.0.0:8080")
 }
