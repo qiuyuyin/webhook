@@ -1,15 +1,15 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+    "github.com/gin-gonic/gin"
+    "webhooks/github"
+)
 
 func main() {
     engine := gin.Default()
     engine.GET("/", func(context *gin.Context) {
         context.JSON(200, "pong")
     })
-
-    engine.POST("/", func(context *gin.Context) {
-        context.JSON(200, "pong")
-    })
+    engine.POST("/github", github.GithubHandler)
     engine.Run("0.0.0.0:8080")
 }
