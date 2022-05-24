@@ -7,7 +7,7 @@ import (
 
 func main() {
     engine := gin.Default()
-    engine.GET("/", func(context *gin.Context) {
+    engine.GET("/ping", func(context *gin.Context) {
         context.JSON(200, "pong")
     })
     engine.POST("/github", github.GithubHandler)
